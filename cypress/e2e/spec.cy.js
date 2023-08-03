@@ -135,12 +135,29 @@ describe('Central de Atendimento ao Cliente TAT', function() {
  
   })
 
-  it.only('seleciona um protudo (blog) utilizando o select pelo seu indice', function(){
+  it('seleciona um protudo (blog) utilizando o select pelo seu indice', function(){
     cy.get('#product')
     .select(1)
     .should('have.value','blog');
+  })
+  
+  it('marca tipo de atendimento com check', function(){
+    cy.get('[type="radio"]')
+    .check('feedback')
+    .should('be.checked','feedback');
 
 
+  })
+
+   
+  it.only('marca cada tipo de atendimento com check', function(){
+    cy.get('[type="radio"]')
+    .should('have.length', 3)
+    .each(function($radio){
+      cy.wrap($radio).check()
+      cy.wrap($radio).should('be.checked')
+
+    })
 
   })
 
