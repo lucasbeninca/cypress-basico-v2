@@ -83,7 +83,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
      .type('lebbeninca@gmail.com');
 
     cy.get('#phone-checkbox')
-     .should('be.visible').click();
+     .should('be.visible').check()
+     .should('be.checked');
 
     cy.contains('button','Enviar')
      .click();
@@ -150,8 +151,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
   })
 
    
-  it.only('marca cada tipo de atendimento com check', function(){
-    cy.get('[type="radio"]')
+  it('marca cada tipo de atendimento com check', function(){
+    cy.get('input[type="radio"]')
     .should('have.length', 3)
     .each(function($radio){
       cy.wrap($radio).check()
@@ -161,8 +162,22 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
   })
 
+  it.only('marca ambos checkbox', function(){
+    cy.get('#check input[type="checkbox"]')
+    .as('checkboxes')
+    .check();    
+// verfica que ambos os checkbox foram marcados
+    cy.get('@checkboxes')
+    .each(checkbox => {
+     expect(checkbox[0].checked).to.equal(true)
+  })
+  //pode ser usado o .last para pegar o ultimo sem a necessidade de um novo cy.get
+  cy.get('#phone-checkbox').uncheck()
+  .should('not.be.checked');
   
 
+  })
+  
 })
 
 
