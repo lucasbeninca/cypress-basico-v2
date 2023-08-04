@@ -195,6 +195,7 @@ it('seleciona um arquivo simulando um drag-and-drop', function(){
 
 })
 
+// conteudo complementar: https://www.youtube.com/watch?v=xwltoOnmfVE
 it.only('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function(){
   cy.fixture('example.json', { encoding: null }).as('exampleFile')
   cy.get('input[type="file"]')
