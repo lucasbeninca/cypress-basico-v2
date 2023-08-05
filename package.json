@@ -6,7 +6,8 @@
   "scripts": {
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
-    "cy:open:Phone":"cypress open --config viewportWidth=410 viewportHeight=880"
+    "cy:open:Phone":"cypress open --config viewportWidth=410 viewportHeight=880",
+    "cy:run:Phone":"cypress run --config viewportWidth=410 viewportHeight=880"
   },
   "repository": {
     "type": "git",
