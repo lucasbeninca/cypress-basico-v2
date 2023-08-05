@@ -197,7 +197,7 @@ it('seleciona um arquivo simulando um drag-and-drop', function(){
 })
 
 // conteudo complementar: https://www.youtube.com/watch?v=xwltoOnmfVE
-it.only('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function(){
+it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function(){
   cy.fixture('example.json', { encoding: null }).as('exampleFile')
   cy.get('input[type="file"]')
   .selectFile('@exampleFile')
@@ -206,6 +206,17 @@ it.only('seleciona um arquivo utilizando uma fixture para a qual foi dada um ali
     })
 
 })
+
+it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', function(){
+  cy.get('#privacy a').should('have.attr', 'target', '_blank');
+
+})
+
+it.only('acessa a página da política de privacidade removendo o target e então clicando no link', function(){
+  cy.get('#privacy a').invoke('removeAttr','target','_blank').click();
+
+})
+
   
 })
 
