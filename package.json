@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "Repositório da versão 2 do curso básico de Cypress da Escola Talking About Testing",
   "main": "src/index.html",
+  
+  
   "scripts": {
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run",
-    "cy:open:Phone":"cypress open --config viewportWidth=410 viewportHeight=880",
-    "cy:run:Phone":"cypress run --config viewportWidth=410 viewportHeight=880"
+    "cy:run": "npx cypress run",    
+    "cy:open:mobile": "npx cypress open --config viewportWidth=410 viewportHeight=880",
+    "cy:run:mobile": "npx cypress run --config viewportWidth=410 viewportHeight=880"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wlsf82/cypress-basico-v2.git"
